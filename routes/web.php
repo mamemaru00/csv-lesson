@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,8 @@ use Illuminate\Support\Facades\Route;
 //     })->name('dashboard');
 // });
 
-Route::get('/', 'App\Http\Controllers\AddressController@index');
+// Route::get('/', 'App\Http\Controllers\AddressController@index');
 Route::get('/export', 'App\Http\Controllers\AddressController@csvDownload')->name('export');
+
+Route::get('/',[AddressController::class, 'index'])->name('index');
+Route::get('/export',[AddressController::class, 'csvDownload'])->name('export');
